@@ -52,17 +52,17 @@ RUN mkdir -p /app/data /app/uploads/avatars /app/uploads/photos /app/uploads/act
 
 # Set environment variables
 ENV NODE_ENV=production
-ENV PORT=3001
+ENV PORT=19527
 ENV DATA_PATH=/app/data
 ENV UPLOADS_PATH=/app/uploads
 ENV FRONTEND_PATH=/app/frontend/build
 
 # Expose port
-EXPOSE 3001
+EXPOSE 19527
 
 # Health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=5s --retries=3 \
-  CMD wget --no-verbose --tries=1 --spider http://localhost:3001/api/auth/check || exit 1
+  CMD wget --no-verbose --tries=1 --spider http://localhost:19527/api/auth/check || exit 1
 
 # Run the application
 CMD ["node", "dist/server.js"]
