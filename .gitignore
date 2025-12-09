@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# Environment files
+.env
+.env.local
+.env.*.local
+
+# Database
+backend/data/*.db
+
+# Uploads (user data)
+backend/uploads/avatars/*
+backend/uploads/photos/*
+backend/uploads/activities/*
+backend/uploads/cards/*
+!backend/uploads/.gitkeep
+!backend/uploads/avatars/.gitkeep
+!backend/uploads/photos/.gitkeep
+!backend/uploads/activities/.gitkeep
+!backend/uploads/cards/.gitkeep
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Vite
+.vite/
