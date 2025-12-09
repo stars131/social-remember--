@@ -61,11 +61,11 @@ app.use('/api', authMiddleware);
 app.use('/api', apiRoutes);
 
 // Serve uploaded files (需要认证)
-const uploadsPath = path.join(__dirname, '../uploads');
+const uploadsPath = process.env.UPLOADS_PATH || path.join(__dirname, '../uploads');
 app.use('/uploads', express.static(uploadsPath));
 
 // Serve static files in production
-const frontendPath = path.join(__dirname, '../../frontend/build');
+const frontendPath = process.env.FRONTEND_PATH || path.join(__dirname, '../../frontend/build');
 app.use(express.static(frontendPath));
 
 // Handle React routing

@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Build outputs (will be built in Docker)
+dist/
+build/
+*/dist/
+*/build/
+
+# Git
+.git/
+.gitignore
+
+# Environment files
+.env
+.env.*
+*.local
+
+# Database and uploads (use volumes instead)
+backend/data/
+backend/uploads/
+
+# IDE and OS
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+
+# Documentation
+*.md
+!README.md
+
+# Docker
+Dockerfile
+docker-compose*.yml
+.dockerignore

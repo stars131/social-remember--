@@ -2,9 +2,9 @@ import initSqlJs, { Database } from 'sql.js';
 import path from 'path';
 import fs from 'fs';
 
-const dbPath = path.join(__dirname, '../../data/social_memo.db');
-const dataDir = path.dirname(dbPath);
-const uploadsDir = path.join(__dirname, '../../uploads');
+const dataDir = process.env.DATA_PATH || path.join(__dirname, '../../data');
+const dbPath = path.join(dataDir, 'social_memo.db');
+const uploadsDir = process.env.UPLOADS_PATH || path.join(__dirname, '../../uploads');
 
 if (!fs.existsSync(dataDir)) {
   fs.mkdirSync(dataDir, { recursive: true });

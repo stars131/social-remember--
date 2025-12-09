@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  social-memo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: social-memo
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    volumes:
+      # Persist database
+      - social-memo-data:/app/data
+      # Persist uploaded files
+      - social-memo-uploads:/app/uploads
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3001/api/auth/check"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  social-memo-data:
+    name: social-memo-data
+  social-memo-uploads:
+    name: social-memo-uploads
